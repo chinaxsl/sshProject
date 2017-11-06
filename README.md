@@ -1,1 +1,2 @@
 # sshProject
+一个基于scrapy框架与elasticsearch的防水材料行业的垂直搜索引擎
