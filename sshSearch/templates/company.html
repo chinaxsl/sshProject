@@ -1,0 +1,166 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!--当前位置 -->
+<div class="home">
+    <p>当前位置：首页><span class="symbol">></span>客户信息</p>
+    <p></p>
+    </div>
+
+    <div class="filter">
+        <div class="container">
+            <div class="box">
+            <div class="title-h">按条件筛选</div>
+            <dl>
+                <dt>数据来源</dt>
+                <dd>
+                    <a href="#" rel="全部" name="from" class="all on">全部</a>
+                    <a href="#" rel="天眼查" name="from" class="sx_child">天眼查</a>
+                    <a href="#" rel="其它" name="from" class="sx_child">其它</a>
+                </dd>
+            </dl>
+                <dl>
+                <dt>所属区域</dt>
+                <dd>
+                    <a href="#"  rel="" name="area" class="all on">全部</a>
+                    <a href="#"  rel="北京" name="area" class="sx_child">北京</a>
+                    <a href="#"  rel="江西" name="area" class="sx_child">江西</a>
+                    <a href="#"  rel="上海" name="area" class="sx_child">上海</a>
+                    <a href="#"  rel="山东" name="area" class="sx_child">山东</a>
+                    <a href="#"  rel="江苏" name="area" class="sx_child">江苏</a>
+                    <a href="#"  rel="浙江" name="area" class="sx_child">浙江</a>
+                    <a href="#"  rel="安徽" name="area" class="sx_child">安徽</a>
+                    <a href="#"  rel="福建" name="area" class="sx_child">福建</a>
+                    <a href="#"  rel="广东" name="area" class="sx_child">广东</a>
+
+                    <a href="#"  rel="广西" name="area" class="sx_child">广西</a>
+                    <a href="#"  rel="海南" name="area" class="sx_child">海南</a>
+                    <a href="#"  rel="湖南" name="area" class="sx_child">湖南</a>
+                    <a href="#"  rel="湖北" name="area" class="sx_child">湖北</a>
+                    <a href="#"  rel="天津" name="area" class="sx_child">天津</a>
+                    <a href="#"  rel="河北" name="area" class="sx_child">河北</a>
+                    <a href="#"  rel="山西" name="area" class="sx_child">山西</a>
+                    <a href="#"  rel="内蒙古" name="area" class="sx_child">内蒙古</a>
+                    <a href="#"  rel="宁夏" name="area" class="sx_child">宁夏</a>
+                    <a href="#"  rel="青海" name="area" class="sx_child">青海</a>
+                    <a href="#"  rel="陕西" name="area" class="sx_child">陕西</a>
+
+                    <a href="#"  rel="甘肃" name="area" class="sx_child">甘肃</a>
+                    <a href="#"  rel="新疆" name="area" class="sx_child">新疆</a>
+                    <a href="#"  rel="四川" name="area" class="sx_child">四川</a>
+                    <a href="#"  rel="贵州" name="area" class="sx_child">贵州</a>
+                    <a href="#"  rel="云南" name="area" class="sx_child">云南</a>
+                    <a href="#"  rel="重庆" name="area" class="sx_child">重庆</a>
+                    <a href="#"  rel="西藏" name="area" class="sx_child">西藏</a>
+                    <a href="#"  rel="辽宁" name="area" class="sx_child">辽宁</a>
+                    <a href="#"  rel="吉林" name="area" class="sx_child">吉林</a>
+                    <a href="#"  rel="黑龙江" name="area" class="sx_child">黑龙江</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt>公司类型</dt>
+                <dd>
+                    <a href="#" rel="全部" name="type" class="all on">全部</a>
+                    <a href="#" rel="防水工程" name="type" class="sx_child">防水工程公司</a>
+                    <a href="#" rel="防水堵漏材料经销商" name="type" class="sx_child">防水堵漏材料经销商</a>
+                    <a href="#" rel="房建公司" name="type" class="sx_child">房建公司</a>
+                    <a href="#" rel="装修公司" name="type" class="sx_child">装修公司</a>
+                    <a href="#" rel="隧道工程公司" name="type" class="sx_child">隧道工程公司</a>
+                    <a href="#" rel="地铁物业管理公司" name="type" class="sx_child">地铁物业管理公司</a>
+                    <a href="#" rel="家政服务公司" name="type" class="sx_child">家政服务公司</a>
+                </dd>
+            </dl>
+            </div>
+        </div>
+        <div>
+    </div>
+    </div>
+
+    <!--列表内容 -->
+    <div class="list">
+    <div class="white">
+                    <form action="../company" method="get">
+                    <ul>
+                    <li>
+                    <label for="key">排序方式</label>
+                        <div class="as_select">
+                            <select>
+                                <option value="volvo">默认</option>
+                            <option value="volvo">爬取时间</option>
+                            <option value="saab">注册时间</option>
+                            <option value="opel">注册资本</option>
+                            </select>
+                        </div>
+                    </li>
+                    <li>
+                    <span class="right">
+                    <label for="key">关键词</label>
+                    <input type="text" name="q" value="{{ key_words }}" required/>
+                    <input type="submit" value="搜索" class="btn"/>
+                        </span>
+                    </li>
+                    </ul>
+                        </form>
+    </div>
+    <ul class="as-pager-body">
+          {% for company in company_list%}
+        <li>
+            <a class="as-pager-item" href="{{ company.url }}" target="_blank">
+            <h5 class="as-p-tit">
+                <span class="txt">
+                    {% autoescape off %}{{ company.company_name }}{% endautoescape %}
+                </span>
+                <span class="time">注册时间：{{ company.company_crawltime}}</span>
+            </h5>
+             <div class="as-p-ft">
+                 <dl class="horizontal">
+                <span>
+                    {% autoescape off %}{{ company.company_main_industry }}{% endautoescape %}
+                </span>
+            </dl>
+            <dl class="horizontal">
+                <dt class="none">信息属性</dt>
+                <dd><span class="tag-attr">公司类型：<strong>{{ company.company_type }}</strong></span>
+                    <span class="tag-attr">公司所在地：<strong>{{ company.company_detailed_location }}</strong></span>
+                    <span class="tag-attr">注册资本：<strong>{{ company.company_money }}</strong></span>
+                    <span class="tag-attr">注册时间：<strong>{{ company.company_register_time }}</strong></span>
+                    <span><strong></strong></span>
+                </dd>
+            </dl>
+                </div>
+            </a>
+        </li>
+     {% endfor %}
+    </ul>
+        <div class="fenye fr">
+        <!-- 分页 -->
+                <div class="pagination ue-clear"></div>
+        </div>
+        <div class="clear"></div>
+    </div>
+{% endblock %}
+
+{% block js %}
+    <script type="text/javascript">
+    var list_url = "{% url 'company' %}"
+	//分页
+    var jq = $.noConflict()
+	$(".pagination").pagination({{ total_nums }}, {
+		current_page :{{ page|add:'-1'}}, //当前页码
+		items_per_page :{{ page_items_num }},
+		display_msg :false,
+		callback :pageselectCallback
+
+	})
+    jq(function(){
+        new SelectTag({
+            child : ".sx_child", //所有筛选范围内的子类
+            over : 'on', //选中状态样式名称
+            all : ".all"
+        })}
+        );
+	function pageselectCallback(page_id, jq) {
+		window.location.href=list_url+'?p='+(page_id+1)
+	}
+    </script>
+{% endblock %}

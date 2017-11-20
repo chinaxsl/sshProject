@@ -1,0 +1,48 @@
+<!DOCTYPE html >
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml"
+      xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html">
+{% load staticfiles %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=emulateIE7" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Title</title>
+    <link href="{% static 'css/list.css'%}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/common.css'%}">
+</head>
+<body>
+<!--网站头部 -->
+<div class="header wid1000">
+<h2>江西盛三和防水工程有限公司</h2>
+</div>
+<!--网站导航 -->
+<div class="nav">
+<ul class="wid1000">
+    <li><a href="../company">客户信息</a></li>
+    <li><a href="../list">工程信息</a></li>
+    <li><a href="../association">协会动态</a></li>
+    <li><a href="../competition">竞品信息</a></li>
+    </ul>
+</div>
+<div class="wid1000">
+{% block content %} {% endblock %}
+</div>
+<!--网站底部 -->
+<div class="footer">
+<div class="links">
+    <p></p>
+    </div>
+<div class="tips">
+    <p>公司地址：江西省南昌市小蓝工业园区金沙三路</p>
+    <p>联系电话：0791-83778857   技术咨询：18679638898    邮编：330000   ( 赣ICP备11018258号-1 )</p>
+    </div>
+</div>
+
+<script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/global.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/pagination.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jquery-1.11.1.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/tagSelect.js' %}"></script>
+{% block js %} {% endblock %}
+</body>
+</html>

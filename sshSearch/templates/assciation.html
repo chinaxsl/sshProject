@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="home">
+    <p>当前位置：首页><span class="symbol">></span>协会动态</p>
+    <p></p>
+    </div>
+
+    <div class="filter">
+        <div class="container">
+            <div class="box">
+            <div class="title-h">按条件筛选</div>
+            <dl>
+                <dt>数据来源</dt>
+                <dd>
+                    <a href="#" rel="" name="from" class="all on">全部</a>
+                    <a href="#" rel="中国建筑防水协会" name="from" class="sx_child">中国建筑防水协会</a>
+                    <a href="#" rel="中国市政协会" name="from" class="sx_child">中国市政协会</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt>发布时间</dt>
+                <dd>
+                    <a href="#" rel="" name="date" class="all on">全部</a>
+                    <a href="#" rel="天" name="date" class="sx_child">最近一天</a>
+                    <a href="#" rel="周" name="date" class="sx_child">最近一周</a>
+                    <a href="#" rel="月" name="date" class="sx_child">最近一月</a>
+                    <a href="#" rel="年" name="date" class="sx_child">最近一年</a>
+                </dd>
+            </dl>
+            </div>
+        </div>
+    </div>
+
+    <!--列表内容 -->
+    <div class="list">
+      <div class="white">
+                    <form action="../association" method="get">
+                    <ul>
+                    <li>
+                    <label for="key">排序方式</label>
+                        <div class="as_select">
+                            <select>
+                                <option value="volvo">默认</option>
+                            <option value="volvo">爬取时间</option>
+                            <option value="saab">注册时间</option>
+                            <option value="opel">注册资本</option>
+                            </select>
+                        </div>
+                    </li>
+                    <li>
+                    <span class="right">
+                    <label for="key">关键词</label>
+                    <input type="text" name="q" value="{{ key_words }}" required/>
+                    <input type="submit" value="搜索" class="btn"/>
+                        </span>
+                    </li>
+                    </ul>
+                        </form>
+    </div>
+    <ul class="as-pager-body">
+          {% for association in association_list%}
+        <li>
+            <a class="as-pager-item" href="{{ association.url }}" target="_blank">
+            <h5 class="as-p-tit">
+                <span class="txt">
+                    {% autoescape off %}{{ association.title }}{% endautoescape %}
+                </span>
+                <span class="time">发布时间：{{ association.date}}</span>
+            </h5>
+             <div class="as-p-ft">
+                 <dl class="horizontal">
+                <span>
+                    {% autoescape off %}{{ association.content }}{% endautoescape %}
+                </span>
+            </dl>
+            <dl class="horizontal">
+                <dt class="none">信息属性</dt>
+                <dd><span class="tag-attr">动态类型：<strong>{{ association.tags }}</strong></span>
+                    <span class="tag-attr">内容来源：<strong>{{ association.from_website }}</strong></span>
+                    <span><strong></strong></span>
+                </dd>
+            </dl>
+                </div>
+            </a>
+        </li>
+     {% endfor %}
+    </ul>
+        <div class="fenye fr">
+        <!-- 分页 -->
+                <div class="pagination ue-clear"></div>
+        </div>
+        <div class="clear"></div>
+    </div>
+
+{% endblock %}
+{% block js %}
+<script type="text/javascript">
+    var list_url = "{% url 'association' %}"
+	//分页
+    var jq = $.noConflict()
+	$(".pagination").pagination({{ total_nums }}, {
+		current_page :{{ page|add:'-1'}}, //当前页码
+		items_per_page :{{ page_items_num }},
+		display_msg :false,
+		callback :pageselectCallback
+
+	})
+    jq(function(){
+        new SelectTag({
+            child : ".sx_child", //所有筛选范围内的子类
+            over : 'on', //选中状态样式名称
+            all : ".all"
+        })}
+        );
+	function pageselectCallback(page_id, jq) {
+		window.location.href=list_url+'?p='+(page_id+1)
+	}
+
+    </script>
+{% endblock %}

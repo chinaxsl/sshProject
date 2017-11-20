@@ -1,0 +1,154 @@
+@charset "utf-8";
+/* CSS Document */
+/*基础样式*/
+*{margin:0; padding:0;}
+body{font-size:14px; color:#333; line-height:2em; background-color:#f1f1f1;}
+ul{list-style:none;}
+img,a img{border:0; outline:none;}
+h1,h2,h3,h4,h5{font-weight:normal;}
+a,a:link{text-decoration:none;outline:none;}
+a:hover{color:#082f5d;}
+table{border-collapse:collapse;}
+/*公共类*/
+.wid1000{width:1000px; margin:auto;}
+.fl{float:left; display:inline;}
+.fr{float:right; display:inline;}
+.clear{clear:both;}
+/*网站头部*/
+.header{height:80px; line-height:80px;}
+.header h2{ font-size:30px; font-family:"微软雅黑"; color:#000;}
+/*网站导航*/
+.nav{background-color:#000; height:50px; line-height:50px; width:100%; color:#fff; font-size:14px;}
+.nav ul li{float:left; display:inline;width:100px;text-align:center;}
+.nav ul li a{color:#fff; display:block;}
+.nav ul li a:hover{background-color:#454648;}
+/*-----------------------------列表页--------------------------------------*/
+.list,.article{background-color:#fff; min-height:500px; padding:30px 40px; margin-bottom:20px; font-size:12px; border:1px solid #ddd; }
+/*.list ul li{ height:50px; line-height:50px; border-bottom:1px solid #ddd;}*/
+.list ul li .time{float:right; display:inline; font-family:Arial;}
+.list ul li .icon1{width:8px; height:8px; border-radius:4px; -moz-border-radius:4px; -webkit-border-radius:4px; background-color:#dbdbdb; display:inline-block; margin-right:8px;}
+.list ul .line1 {width:8px; height:8px; border-radius:4px; -moz-border-radius:4px; -webkit-border-radius:4px; background-color:#dbdbdb; display:inline-block; margin-right:8px;}
+.list .fenye span{padding:5px 10px;border:0px solid #dddddd; margin-left: 5px; background-color: #fff;}
+.list .fenye {margin-top:25px;}
+.list .fenye a{padding:5px 10px; background-color: #f1f1f1; border:1px solid #ddd; margin-left: 5px;}
+.list .fenye a:hover{padding:5px 10px; background-color:#1c59a8; border:1px solid #1552a1; margin-left: 5px; color:#fff;}
+/*网站底部*/
+.footer{background-color:#000; height:100px; padding:20px 0;}
+.footer .links{text-align:center;}
+.footer .links a{color:#fff; margin:0 20px; }
+.footer .tips{font-size:12px; color:#999; text-align:center; margin-top:15px;}
+
+.as-pager-item {
+    display: block;
+    padding-bottom: 22px;
+    border-bottom: 1px solid #e6e6e6;
+    overflow: hidden;
+}
+.as-pager-body .as-p-ft {
+    margin-top: 10px;
+    margin-left: 15px;
+}
+.as-pager-body .as-p-tit {
+    font-size: 0px;
+    margin-top: 21px;
+    margin-left: 20px;
+}
+.as-pager-body .as-p-desc {
+    margin: 10px 20px auto 20px;
+    font: 12px/24px "宋体";
+    color: #444444;
+}
+.as-pager-item:hover .as-p-tit .txt {
+    color: #ed5858;
+}
+.as-pager-body .as-p-tit .txt {
+    position: relative;
+    color: #444444;
+    font: bold 16px/24px "宋体";
+    vertical-align: middle;
+}
+dl.horizontal dt, dl.horizontal dd {
+    float: left;
+}
+.none {
+    display: none;
+}
+.as-pager-body .as-p-tit .time {
+    float: right;
+    color: #a6a6a6;
+    margin-right: 20px;
+}
+.as-pager-body .as-p-ft .tag-attr {
+    margin-right: 5px;
+}
+.tag-attr {
+    display: inline-block;
+    padding: 0px 5px 0px 4px;
+    color: #80aed4;
+    border: 1px solid #a7c3ec;
+    line-height: 18px;
+}
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+span {
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    font: 12px/24px Arial, "宋体", "微软雅黑";
+    vertical-align: baseline;
+    -webkit-text-size-adjust: none;
+}
+a:-webkit-any-link {
+    color: #333;
+    cursor: auto;
+}
+.search {
+            border: 1px solid #cccdcf;
+            padding:8px 10px;
+            display: inline-block;
+            color: #343434;
+}
+
+
+.btn{
+    border: none;
+    height: 24px;
+    width: 89px;
+
+    padding-left: 5px;
+    background-color: #ed5858;
+    margin-left: 10px;
+    font: 12px/23px "宋体";
+    color: #ffffff;
+}
+label{
+    float:left;
+    margin-top: 10px;
+    margin-right: 5px;
+    font: 12px/24px Arial, "宋体", "微软雅黑";
+}
+input{
+    margin-top: 10px;
+    margin-right: 2px;
+    font: 12px/24px Arial, "宋体", "微软雅黑";
+}
+.as_select{
+    width: 200px;
+    margin-right: 40px;
+    float: left;
+    margin-top: 10px;
+    border: 1px;
+}
+.white{
+    background: white;
+    height: 40px;
+}
+.right{
+    float:right
+}
+.home{
+    margin-top: 5px;
+}
